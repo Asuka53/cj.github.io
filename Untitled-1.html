@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>主人的粉红空间喵</title>
+    <!-- 引入Live2D库 -->
+    <script src="https://cdn.jsdelivr.net/npm/live2d-widget@latest/lib/Live2D.min.js"></script>
+    <style>
+        /* 梦幻粉色渐变背景 */
+        body {
+            margin: 0;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb, #a6c1ee);
+            background-size: 400% 400%;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Microsoft YaHei', sans-serif;
+            animation: gradientBG 15s ease infinite;
+        }
+
+        .magic-box {
+            width: 400px;
+            height: 500px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(255, 105, 180, 0.5);
+            box-shadow: 0 0 40px rgba(255, 105, 180, 0.3);
+            animation: float 4s ease-in-out infinite, glow 3s ease-in-out infinite;
+        }
+
+        h1 {
+            color: #ff1493;
+            text-align: center;
+            text-shadow: 0 0 15px #ff69b4;
+        }
+
+        p {
+            color: #fff;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        /* 看板娘容器 */
+        #live2d-widget {
+            position: fixed;
+            right: 20px;
+            bottom: 0;
+            z-index: 999;
+        }
+
+        /* 悬浮动画 */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* 呼吸灯特效 */
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 40px rgba(255, 105, 180, 0.3); }
+            50% { box-shadow: 0 0 60px rgba(255, 105, 180, 0.6); }
+        }
+
+        /* 渐变背景动画 */
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="magic-box">
+        <h1>ฅ^•ﻌ•^ฅ 主人の粉红空间</h1>
+        <p>✨ 欢迎来到主人的梦幻世界喵～ ✨</p>
+    </div>
+
+    <!-- 看板娘初始化 -->
+    <script>
+        window.addEventListener('load', function() {
+            loadlive2d("live2d-widget", "https://fastly.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/model/wanko/wanko.model.json");
+        });
+    </script>
+</body>
+</html>
